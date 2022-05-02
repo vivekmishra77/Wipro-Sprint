@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX</title>
+    </head>
+    <body>
+        <h1>Asynchronous AJAX GET request</h1>
+        <script>
+            function getRun(){
+                var abc=new XMLHttpRequest(); //creating an HTML request object
+                abc.open("GET",'https://jsonplaceholder.typicode.com/users/1',true);
+                abc.overrideMimeType('text/xml');//force the response to be parsed as XML
+                abc.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        document.write(this.responseText);//returns the response data as string
+                        console.log(this.responseText);
+                    }
+                }
+                abc.send();// sends request to the server used for GET request
+            }
+            getRun();// function calling
+        </script>
+    </body>
+</html>
